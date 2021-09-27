@@ -29,9 +29,9 @@ function Header() {
     window.addEventListener('scroll', checkScrollTop);
 
     return (
-        <HeaderWrapper isFixed={showScroll}>
+        <HeaderWrapper width={width} isFixed={showScroll}>
             <HeaderContainer className="nav-container">
-                <StyledLink $isFullLink
+                <StyledLink width={width} $isFullLink
                     activeClass="inactive"
                     to="home"
                     spy={true}

@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 export const HeaderWrapper = styled.nav`
     position: ${(props) => props.isFixed ? "fixed" : "relative"};
     width: 100%;
-    height: 90px;
+    height: ${(props) => props.width < 576 ? 55 : 90}px;
     background: #fccf58;
     box-shadow: 0 -11px 40px  ${(props) => props.isFixed ? "#000" : "#fccf58"};
     z-index: 1;
@@ -15,6 +15,7 @@ export const HeaderContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 100%;
     align-items: center;
     padding: 0 50px;
     &.nav-container .active {
@@ -49,7 +50,8 @@ export const StyledLink = styled(Link)`
     }
     ${(props) =>
         props.$isFullLink &&`
-        font-size: 50px;
+        // font-size: ${(props) => props.width < 576 ? 40 : 50}px;
+        font-size: 35px;
         color: #fff;
         border-bottom: none;
         &:hover {

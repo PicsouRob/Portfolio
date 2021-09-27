@@ -53,6 +53,7 @@ export const AboutMe = styled.p`
     color: #242323;
     line-height: 30px;
     font-size: 18px;
+    padding-right: 20px;
 `;
 
 const DescriptionWrapper = styled.div`
