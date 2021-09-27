@@ -12,19 +12,19 @@ function Work() {
     const { width } = useWidth();
     const [cardWidth, setCardWidth] = useState("300px");
 
-    const handleSlide = () => {
-        if (width < 576) {
-            setCardWidth("300px");
-        } else if (width < 768) {
-            setCardWidth("300px");
-        } else if (width < 992) {
-            setCardWidth("200px");
-        } else {
-            setCardWidth("340px");
-        }
-    }
-
     useEffect(() => {
+        const handleSlide = () => {
+            if (width < 576) {
+                setCardWidth("300px");
+            } else if (width < 768) {
+                setCardWidth("300px");
+            } else if (width < 992) {
+                setCardWidth("200px");
+            } else {
+                setCardWidth("340px");
+            }
+        }
+
         handleSlide();
     }, [width]);
 

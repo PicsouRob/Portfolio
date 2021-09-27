@@ -26,7 +26,7 @@ function Header() {
         setIsShow(!isShow);
     }
 
-    window.addEventListener('scroll', checkScrollTop());
+    window.addEventListener('scroll', checkScrollTop);
 
     return (
         <HeaderWrapper isFixed={showScroll}>

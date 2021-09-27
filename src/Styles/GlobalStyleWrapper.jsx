@@ -63,14 +63,14 @@ const DescriptionWrapper = styled.div`
 `;
 
 export function HeaderDescription(props) {
-    const { header, bottom, isRight, width, isYellow, widthImage } = props;
+    const { header, bottom, isRight, width, isYellow } = props;
 
     return (
         <DescriptionWrapper isRight={isRight}>
             <div>
                 <TextStyle isRight={isRight} header={header}>{header}</TextStyle>
                 <TextStyle $isMoreSize isYellow={isYellow} width={width}>{bottom}</TextStyle>
-                <Bar widthImage={widthImage} isRight={isRight}></Bar>
+                <Bar isRight={isRight}></Bar>
             </div>
             <div>
                 <AnimationPoint isYellow={isYellow}></AnimationPoint>
@@ -124,33 +124,32 @@ export function useWidth() {
         setWidth(window.innerWidth);
     }
 
-    const widthImage = () => {
-        if(width > 768 & width < 960) {
-            setImageWidth("225px");
-            setPadding("30px");
-            setHeightImage("280px");
-        } else if(width < 576) {
-            setImageWidth(`${width - 50}px`);
-            setPadding("20px");
-            setHeightImage("450px");
-        } else if(width > 576 & width < 768) {
-            setImageWidth("220px");
-            setPadding("50px");
-            setHeightImage("320px");
-        } else if(width > 960 & width < 1140) {
-            setImageWidth("280px");
-            setPadding("30px");
-            setHeightImage("380px");
-        } else if(width > 1140) {
-            setImageWidth("330px");
-            setPadding("80px");
-            setHeightImage("380px");
-        }
-    }
-    
     useEffect(() => {
-        checkWidth();
+        const widthImage = () => {
+            if(width > 768 & width < 960) {
+                setImageWidth("225px");
+                setPadding("30px");
+                setHeightImage("280px");
+            } else if(width < 576) {
+                setImageWidth(`${width - 50}px`);
+                setPadding("20px");
+                setHeightImage("450px");
+            } else if(width > 576 & width < 768) {
+                setImageWidth("220px");
+                setPadding("50px");
+                setHeightImage("320px");
+            } else if(width > 960 & width < 1140) {
+                setImageWidth("280px");
+                setPadding("30px");
+                setHeightImage("380px");
+            } else if(width > 1140) {
+                setImageWidth("330px");
+                setPadding("80px");
+                setHeightImage("380px");
+            }
+        }
         widthImage();
+        checkWidth();
         window.addEventListener('resize', checkWidth);
     }, [width]);
 
